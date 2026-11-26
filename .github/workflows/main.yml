@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Write Clean Manifest
-        run: python3 -c 'c=chr(58); open("app/src/main/AndroidManifest.xml","w").write(f"<manifest xmlns{c}a=\"http{c}//://android.com\"><application a{c}label=\"TapCounter\" a{c}theme=\"@style/Theme.AppCompat.Light.DarkActionBar\"><activity a{c}name=\".MainActivity\" a{c}exported=\"true\"><intent-filter><action a{c}name=\"android.intent.action.MAIN\"/><category a{c}name=\"android.intent.category.LAUNCHER\"/></intent-filter></activity></application></manifest>")'
+        run: python3 -c 's="<manifest xmlnsQa=\"httpQ//://android.com\"><application aQlabel=\"TapCounter\" aQtheme=\"@style/Theme.AppCompat.Light.DarkActionBar\"><activity aQname=\".MainActivity\" aQexported=\"true\"><intent-filter><action aQname=\"android.intent.action.MAIN\"/><category aQname=\"android.intent.category.LAUNCHER\"/></intent-filter></activity></application></manifest>".replace("Q",chr(58)); open("app/src/main/AndroidManifest.xml","w").write(s)'
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
